@@ -1,28 +1,29 @@
 {% extends "core/base.html" %}
-{% block title %} Peliculas - CineApp {% endblock %}
+{% block title %} Películas - CineApp {% endblock %}
+
 {% block content %}
 
 <div class="page-header">
-    <h1 class="page-header__title">Página de Peliculas</h1>
+    <h1 class="page-header__title">Página de Películas</h1>
   </div>
   <div class="container">
   <div class="card">
-    <h2 class="card__title">Bienvenido a la página de Peliculas</h2>
+    <h2 class="card__title">Bienvenido a la página de Películas</h2>
     <p class="card__body">
-      Acá podrás visualizar todas las peliculas.
+      Aquí encontrarás todas las Películas. Puedes agregar nuevas Películas
+      mediante el formulario o buscar por nombre y autor.
     </p>
     <ul class="card__list">
       {% for pelicula in peliculas %}
       <li class="card__list-item">
-
-        <div class="item-list__name"> Pelicula: {{ usuario.nombre }} - Apellido: {{ usuario.apellido }} - Email: {{ usuario.email }}</div>
+        <strong>{{ pelicula.nombre }}</strong> Autor: {{ pelicula.autor }} - Género: {{ pelicula.genero }} - Estreno: {{ pelicula.fecha_estreno }}
       </li>
       {% empty %} 
-      <li class="card__list-item">No hay peliculas disponibles disponibles.</li>
+      <li class="card__list-item">No hay películas disponibles.</li>
       {% endfor %}
     <div class="card__footer">
-      <a href="{% url 'peliculasFormulario' %}" class="btn">Agregar Pelicula</a>
-      <a href="{% url 'buscarPeliculas' %}" class="btn btn--outline">Buscar Pelicula</a>
+      <a href="{% url 'peliculasFormulario' %}" class="btn">Agregar Película</a>
+      <a href="{% url 'buscarPeliculas' %}" class="btn btn--outline">Buscar Película</a>
     </div>
   </div>
 </div>

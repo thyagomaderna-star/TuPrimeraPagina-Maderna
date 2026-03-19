@@ -1,0 +1,27 @@
+{% extends "core/base.html" %} {% block content %}
+
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-header__title">Resultados de Búsqueda</h1>
+  </div>
+  <div class="card">
+    {% if resultados %}
+      <div class="item-list">
+        {% for pelicula in resultados %}
+        <div class="item-list__row">
+          <div class="item-list__info">
+            <div class="item-list__name">{{ pelicula.nombre }} - {{ pelicula.autor }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No se encontraron resultados.</p>
+    {% endif %}
+  </div>
+  <p style="margin-top: 1.5rem;">
+    <a href="{% url 'buscarPeliculas' %}" class="btn btn--ghost">Nueva Búsqueda</a>
+    <a href="{% url 'peliculas' %}" class="btn btn--outline">Ir a Películas</a>
+  </p>
+</div>
+{% endblock %}

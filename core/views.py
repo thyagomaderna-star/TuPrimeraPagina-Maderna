@@ -21,7 +21,7 @@ def usuarios(request):
 def peliculas(request):
     peliculas = Pelicula.objects.all()
     contexto = {"peliculas": peliculas}
-    return render(request,"core/peliculas/peliculas.html")
+    return render(request,"core/peliculas/peliculas.html", contexto)
 
 #Formularios 
 
@@ -117,5 +117,5 @@ def buscarPeliculas(request):
                 ,"core/peliculas/resultado_busqueda_pelicula.html",
                 {"resultados": resultados, "form": form})
     else:
-        form = PeliculaFormulario()
+        form = BusquedaPeliculaFormulario()
     return render(request,"core/peliculas/buscar_pelicula.html",{"form": form} )

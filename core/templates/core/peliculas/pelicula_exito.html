@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% block title %}Película Agregada - CineApp{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="card" style="max-width: 480px; margin-inline: auto; text-align: center;">
+    <div class="alert alert--success">
+      ¡La película se ha agregado correctamente!
+    </div>
+    <p class="text-muted">Puedes agregar más películas o buscar una existente.</p>
+    <div class="flex flex-gap" style="justify-content: center; margin-top: 1.5rem;">
+      <a href="{% url 'peliculasFormulario' %}" class="btn">Agregar otra Película</a>
+      <a href="{% url 'peliculas' %}" class="btn btn--outline">Ver Películas</a>
+      <a href="{% url 'buscarPeliculas' %}" class="btn btn--ghost">Buscar Películas</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

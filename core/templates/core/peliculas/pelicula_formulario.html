@@ -1,15 +1,14 @@
-
 {% extends "core/base.html" %}
 
-{% block title %}Agregar Usuarios - CineApp{% endblock %}
+{% block title %}Agregar Películas - CineApp{% endblock %}
 
 {% block content %}
 <div class="container">
   <div class="form-page">
     <div class="form-page__header">
-      <a href="{% url 'peliculas' %}" class="form-page__back">← Volver a Peliculas</a>
-      <h1>Agregar Pelicula</h1>
-      <p class="text-muted">Completa el formulario para registrar una pelicula.</p>
+      <a href="{% url 'peliculas' %}" class="form-page__back">← Volver a Películas</a>
+      <h1>Agregar Película</h1>
+      <p class="text-muted">Completa el formulario para registrar una nueva Película.</p>
     </div>
     <div class="card">
       <form action="{% url 'peliculasFormulario' %}" method="post" class="form">
