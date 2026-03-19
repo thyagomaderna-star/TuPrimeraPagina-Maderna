@@ -1,0 +1,17 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}CineApp{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/components.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/pages.css' %}" />
+  </head>
+  <body>
+     {% block navbar %}{% include "core/partials/_navbar.html" %}{% endblock %}
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>

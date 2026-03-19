@@ -1,0 +1,23 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Agregar Usuarios - CineApp{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="form-page">
+    <div class="form-page__header">
+      <a href="{% url 'peliculas' %}" class="form-page__back">← Volver a Peliculas</a>
+      <h1>Agregar Pelicula</h1>
+      <p class="text-muted">Completa el formulario para registrar una pelicula.</p>
+    </div>
+    <div class="card">
+      <form action="{% url 'peliculasFormulario' %}" method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

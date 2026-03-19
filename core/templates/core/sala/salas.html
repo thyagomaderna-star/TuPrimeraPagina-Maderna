@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% block title %} Salas - CineApp {% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1 class="page-header__title">Página de Cursos</h1>
+    <a href="{% url 'salaFormulario' %}" class="btn">Agregar Salas</a>
+  </div>
+  <div class="container">
+  <div class="card">
+    <h2 class="card__title">Bienvenido a la página de Salas</h2>
+    <p class="card__body">
+      Aquí encontrarás todos los Salas. Puedes agregar nuevos Salas
+      mediante el formulario o buscar por nombre y numero.
+    </p>
+    <ul class="card__list">
+      {% for sala in salas %}
+      <li class="card__list-item">
+        <strong>{{ sala.nombre }}</strong> Numero: {{ sala.numero }}
+      </li>
+      {% empty %} 
+      <li class="card__list-item">No hay salas disponibles.</li>
+      {% endfor %}
+    <div class="card__footer">
+      <a href="{% url 'salaFormulario' %}" class="btn">Agregar Sala</a>
+      <a href="{% url 'buscarSala' %}" class="btn btn--outline">Buscar Sala</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

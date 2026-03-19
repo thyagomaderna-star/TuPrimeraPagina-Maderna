@@ -1,0 +1,20 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Sala Agregada - CineApp{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="card" style="max-width: 480px; margin-inline: auto; text-align: center;">
+    <div class="alert alert--success">
+      ¡La sala se ha agregado correctamente!
+    </div>
+    <p class="text-muted">Puedes agregar más salas o buscar uno existente.</p>
+    <div class="flex flex-gap" style="justify-content: center; margin-top: 1.5rem;">
+      <a href="{% url 'salaFormulario' %}" class="btn">Agregar otra Sala</a>
+      <a href="{% url 'salas' %}" class="btn btn--outline">Ver Salas</a>
+      <a href="{% url 'buscarSala' %}" class="btn btn--ghost">Buscar Salas</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

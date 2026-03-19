@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% block title %} Usuarios - CineApp {% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1 class="page-header__title">Página de Usuarios</h1>
+  </div>
+  <div class="container">
+  <div class="card">
+    <h2 class="card__title">Bienvenido a la página de Usuarios :D</h2>
+    <p class="card__body">
+      Aquí encontrarás toda la informacion de los usuarios. Puedes agregar nuevos Usuarios
+      mediante el formulario o buscarlos mediante sus Nombre/Apellidos/emails
+    </p>
+    <ul class="card__list">
+      {% for usuario in usuarios %}
+      <li class="card__list-item">
+
+        <div class="item-list__name"> Usuario: {{ usuario.nombre }} - Apellido: {{ usuario.apellido }} - Email: {{ usuario.email }}</div>
+      </li>
+      {% empty %} 
+      <li class="card__list-item">No hay usuarios disponibles.</li>
+      {% endfor %}
+    <div class="card__footer">
+      <a href="{% url 'usuarioFormulario' %}" class="btn">Agregar Usuario</a>
+      <a href="{% url 'buscarUsuario' %}" class="btn btn--outline">Buscar Usuario</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

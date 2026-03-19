@@ -1,0 +1,23 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Agregar Salas - CineApp{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="form-page">
+    <div class="form-page__header">
+      <a href="{% url 'salas' %}" class="form-page__back">← Volver a Salas</a>
+      <h1>Agregar Sala</h1>
+      <p class="text-muted">Completa el formulario para registrar una nueva Sala.</p>
+    </div>
+    <div class="card">
+      <form action="{% url 'salaFormulario' %}" method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
