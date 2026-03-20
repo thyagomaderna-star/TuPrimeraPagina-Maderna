@@ -5,7 +5,6 @@
 
 <div class="page-header">
     <h1 class="page-header__title">Página de Cursos</h1>
-    <a href="{% url 'salaFormulario' %}" class="btn">Agregar Salas</a>
   </div>
   <div class="container">
   <div class="card">
@@ -17,7 +16,7 @@
     <ul class="card__list">
       {% for sala in salas %}
       <li class="card__list-item">
-        <strong>{{ sala.nombre }}</strong> Numero: {{ sala.numero }}
+        <strong>Letra: "{{ sala.nombre }}" -- Numero: {{ sala.numero }} </strong>
       </li>
       {% empty %} 
       <li class="card__list-item">No hay salas disponibles.</li>
