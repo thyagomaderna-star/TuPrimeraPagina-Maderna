@@ -12,7 +12,7 @@ Un proyecto de aplicación web desarrollado con **Python** y el framework **Djan
 ## Tecnologías Utilizadas
 * **Lenguaje:** Python
 * **Framework Web:** Django
-* **Gestor de Paquetes/Entorno:** Pipenv
+* **Gestor de Entorno:** Pipenv
 * **Base de Datos:** SQLite (por defecto en Django)
 
 ## Instalación y Ejecución Local
