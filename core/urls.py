@@ -12,7 +12,10 @@ urlpatterns = [
     path("usuarioFormulario",views.usuarioFormulario,name="usuarioFormulario"),
     path("buscarUsuario/",views.buscarUsuario,name="buscarUsuario"),
     #Urls Peliculas
-    path("peliculas/",views.peliculas,name="peliculas"),
+    #path("peliculas/",views.peliculas,name="peliculas"),
+    path("peliculas/",views.PeliculaList.as_view(),name="peliculas"),
+
     path("peliculasFormulario",views.peliculasFormulario,name="peliculasFormulario"),
-    path("buscarPelicula/",views.buscarPeliculas,name="buscarPeliculas")
+    path("buscarPelicula/",views.buscarPeliculas,name="buscarPeliculas"),
+    path("PeliculaDetalle/",views.PeliculaDetalle.as_view(),name="PeliculaDetalle")
 ]

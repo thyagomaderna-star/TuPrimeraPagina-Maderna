@@ -11,15 +11,15 @@
     <h2 class="card__title">Bienvenido a la página de Películas</h2>
     <p class="card__body">
       Aquí encontrarás todas las Películas. Puedes agregar nuevas Películas
-      mediante el formulario o buscar por nombre y autor.
-
+      mediante el formulario o buscar por nombre y autor.</p>
       <div>
-        <table class="table">
-          <thead class="table__header">
+        <table class="table table-bordered">
+          <thead> 
             <th>nombre</th>
             <th>autor</th>
             <th>fecha_estreno</th>
             <th>genero</th>
+            <th>acciones</th>
           </thead>
           <tbody>
             {% for pelicula in peliculas %}
@@ -28,6 +28,11 @@
               <td>{{ pelicula.autor }}</td>
               <td>{{ pelicula.fecha_estreno }}</td>
               <td>{{ pelicula.genero }}</td>
+              <td>
+                <a class="btn" href="#">Detalles</a>
+                <a class="btn" href="#">Cambiar</a>
+                <a class="btn" href="#">Eliminar</a>
+             </td>
             </tr>
             {% endfor %}
           </tbody>

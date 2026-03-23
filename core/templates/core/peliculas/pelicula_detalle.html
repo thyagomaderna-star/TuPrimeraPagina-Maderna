@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %} Detalles de Película - CineApp {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card">
+        <p class="card__body"> Nombre: {{ objet.nombre }} </p>
+        <p class="card__body"> Autor: {{ objet.autor }} </p>
+        <a href="{% url 'peliculas' %}" class="btn btn--outline">Volver a Películas</a>
+    </div>
+</div>
+
+{% endblock %}

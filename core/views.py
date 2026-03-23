@@ -2,8 +2,9 @@
 from django.shortcuts import render
 from .models import Usuario, Pelicula, Sala
 from .forms import SalaFormulario, BusquedaSalaFormulario, UsuarioFormulario,BusquedaUsuarioFormulario, BusquedaPeliculaFormulario, PeliculaFormulario
-
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 #Paginas principales
+
 
 def inicio(request):
     return render(request, "core/inicio.html")
@@ -18,7 +19,7 @@ def usuarios(request):
     contexto = {"usuarios": usuarios}
     return render(request,"core/usuarios/usuarios.html",contexto)
 
-def peliculas(request):
+#def peliculas(request):
     peliculas = Pelicula.objects.all()
     contexto = {"peliculas": peliculas}
     return render(request,"core/peliculas/peliculas.html", contexto)
@@ -119,3 +120,16 @@ def buscarPeliculas(request):
     else:
         form = BusquedaPeliculaFormulario()
     return render(request,"core/peliculas/buscar_pelicula.html",{"form": form} )
+
+#Basadas en clase
+
+#Peliculas
+
+class PeliculaList(ListView):
+    model = Pelicula
+    template_name = "core/peliculas/peliculas.html"
+    context_object_name = "peliculas"
+
+class PeliculaDetalle(DetailView):
+    model = Pelicula
+    template_name = "core/peloiculas/pelicula_detalle.html"
