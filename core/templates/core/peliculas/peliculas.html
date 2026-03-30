@@ -3,40 +3,52 @@
 
 {% block content %}
 
-<div class="page-header">
+<div class="page-header text-center">
+  
+</div>
+
+<div class="container section--sm">
+  
+  <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
     <h1 class="page-header__title">Página de Películas</h1>
-  </div>
-  <div class="container">
-  <div class="card">
-    <h2 class="card__title">Bienvenido a la página de Películas</h2>
-    <p class="card__body">
-      Aquí encontrarás todas las Películas. Puedes agregar nuevas Películas
-      mediante el formulario o buscar por nombre y autor.</p>
-      <div>
-        <table class="table table-bordered">
-          <thead> 
-            <th>nombre</th>
-          </thead>
-          <tbody>
-            {% for pelicula in peliculas %}
-            <tr>
-              <td>{{ pelicula.nombre }}</td>
-              <td>
-                <a class="btn" href="{% url 'PeliculaDetalle' pelicula.pk %}"  >Detalles</a>
-                <a class="btn" href="{% url 'PeliculaEditar' pelicula.pk %}"">Cambiar</a>
-                <a class="btn" href="{% url 'PeliculaDelete' pelicula.pk %}"">Eliminar</a>
-             </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+    <div class="card__body">
+      <p>
+        Aquí encontrarás todas las Películas. Puedes agregar nuevas Películas
+        mediante el formulario o buscar por nombre.
+      </p>
+    </div>
+
+    <div style="padding: 0 20px 20px 20px; overflow-x: auto;">
+      <table class="table table-bordered" style="margin: 0 auto; width: 100%;">
+        <thead> 
+          <tr>
+            <th style="text-align: center;">Nombre</th>
+            <th style="text-align: center;">Acciones</th> </tr>
+        </thead>
+        <tbody>
+          {% for pelicula in peliculas %}
+          <tr>
+            <td style="vertical-align: middle; font-weight: bold;">
+                {{ pelicula.nombre }}
+            </td>
+            <td>
+              <div style="display: flex; justify-content: center; gap: 10px;">
+                <a class="btn" href="{% url 'PeliculaDetalle' pelicula.pk %}">Detalles</a>
+                <a class="btn" href="{% url 'PeliculaEditar' pelicula.pk %}">Cambiar</a>
+                <a class="btn" href="{% url 'PeliculaDelete' pelicula.pk %}">Eliminar</a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
     
-    
-    <div class="card__footer">
+    <div class="card__footer" style="display: flex; justify-content: center; gap: 15px;">
       <a href="{% url 'peliculasFormulario' %}" class="btn">Agregar Película</a>
       <a href="{% url 'buscarPeliculas' %}" class="btn btn--outline">Buscar Película</a>
     </div>
+    
   </div>
 </div>
 

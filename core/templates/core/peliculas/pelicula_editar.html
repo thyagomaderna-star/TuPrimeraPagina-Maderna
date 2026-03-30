@@ -1,18 +1,30 @@
 {% extends "core/base.html" %}
-{% block title %} Películas - CineApp {% endblock %}
+{% block title %}Editar Película - CineApp{% endblock %}
 
 {% block content %}
+<div class="container section--sm">
+  
+  <div class="form-page">
+    
+    <div class="text-center" style="margin-bottom: 30px;">
+      <h1>Editar Película</h1>
+    </div>
 
-    <head>
-        <title>Editar Pelicula</title>
-    </head>
-    <body>
-        <h2>Editar parametros de Pelicula</h2>
-        <form class="form-page" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" >Guardar cambios</button>
-        </form>
-    </body>
+    <div class="card">
+      <form method="post" class="card__body">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <div class="text-center" style="margin-top: 20px;">
+          <button type="submit" class="btn">Guardar cambios</button>
+          <a href="{% url 'peliculas' %}" class="btn btn--outline">Cancelar</a>
+        </div>
+        
+      </form>
+    </div>
 
-    {% endblock %}
+  </div>
+  
+</div>
+{% endblock %}

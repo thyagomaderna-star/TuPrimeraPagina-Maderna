@@ -1,12 +1,16 @@
-{% load static %}
+<nav class="navbar">
+  <div class="container section--sm text-center">
+      
+      <a href="{% url 'inicio' %}" class="text-danger">
+          <h1>CineApp</h1>
+      </a>
 
-<header>
-  <div class="container">
-    <nav class="nav">
-      <a href="{% url 'inicio' %}">Inicio</a>
-      <a href="{% url 'salas' %}">Salas</a>
-      <a href="{% url 'usuarios' %}">Usuarios</a>
-      <a href="{% url 'peliculas' %}">Peliculas</a>
-    </nav>
+      <div class="navbar__links flex-center">
+          <a href="{% url 'inicio' %}" >Inicio</a>
+          <a href="{% url 'peliculas' %}" >Películas</a>
+          <a href="{% url 'salas' %}">Salas</a>
+          <a href="{% url 'usuarios' %}">Usuarios</a>
+      </div>
+
   </div>
-</header>
+</nav>
