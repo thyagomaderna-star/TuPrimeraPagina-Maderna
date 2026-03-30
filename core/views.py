@@ -148,3 +148,8 @@ class PeliculaEliminar(DeleteView):
     template_name ="core/peliculas/pelicula_confirmar_delete.html"
     def get_success_url(self):
         return redirect("peliculas").url
+    
+class PeliculaCrear(CreateView):
+    model = Pelicula
+    fields = ['nombre','autor','fecha_estreno','genero']
+    template_name = "core/peliculas/pelicula_create.html"
