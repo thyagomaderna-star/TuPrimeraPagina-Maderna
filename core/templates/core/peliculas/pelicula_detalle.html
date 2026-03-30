@@ -6,8 +6,12 @@
 
 <div class="container">
     <div class="card">
-        <p class="card__body"> Nombre: {{ objet.nombre }} </p>
-        <p class="card__body"> Autor: {{ objet.autor }} </p>
+        <strong>
+        <p class="card__body"> Nombre: {{ pelicula.nombre }} </p>
+        <p class="card__body"> Autor: {{ pelicula.autor }} </p>
+        <p class="card__body"> Estreno: {{ pelicula.fecha_estreno }} </p>
+        <p class="card__body"> Genero: {{ pelicula.genero }} </p>
+        </strong>
         <a href="{% url 'peliculas' %}" class="btn btn--outline">Volver a Películas</a>
     </div>
 </div>

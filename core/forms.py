@@ -16,6 +16,7 @@ class UsuarioFormulario(forms.Form):
     nombre = forms.CharField(max_length=50,label="Nombre del usuario")
     apellido = forms.CharField(max_length=50,label="Apellido del usuario")
     email = forms.EmailField(label="Email del usuario")
+    password = forms.CharField(max_length=50,label="Contraseña")
 
 class BusquedaUsuarioFormulario(forms.Form):
     nombre = forms.CharField(max_length=50)
@@ -32,6 +33,7 @@ class PeliculaFormulario(forms.Form):
 
 class BusquedaPeliculaFormulario(forms.Form):
     nombre = forms.CharField(max_length=50)
-    autor = forms.CharField(max_length=50)
-    fecha_estreno = forms.DateField()
-    genero = forms.CharField(max_length=20)
+    # Colocar filtros opcionales 
+    #autor = forms.CharField(max_length=50)
+    #fecha_estreno = forms.DateField()
+    #genero = forms.CharField(max_length=20)

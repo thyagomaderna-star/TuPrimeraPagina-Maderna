@@ -16,22 +16,15 @@
         <table class="table table-bordered">
           <thead> 
             <th>nombre</th>
-            <th>autor</th>
-            <th>fecha_estreno</th>
-            <th>genero</th>
-            <th>acciones</th>
           </thead>
           <tbody>
             {% for pelicula in peliculas %}
             <tr>
               <td>{{ pelicula.nombre }}</td>
-              <td>{{ pelicula.autor }}</td>
-              <td>{{ pelicula.fecha_estreno }}</td>
-              <td>{{ pelicula.genero }}</td>
               <td>
-                <a class="btn" href="#">Detalles</a>
-                <a class="btn" href="#">Cambiar</a>
-                <a class="btn" href="#">Eliminar</a>
+                <a class="btn" href="{% url 'PeliculaDetalle' pelicula.pk %}"  >Detalles</a>
+                <a class="btn" href="{% url 'PeliculaEditar' pelicula.pk %}"">Cambiar</a>
+                <a class="btn" href="{% url 'PeliculaDelete' pelicula.pk %}"">Eliminar</a>
              </td>
             </tr>
             {% endfor %}

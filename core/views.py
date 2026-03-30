@@ -1,8 +1,8 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario, Pelicula, Sala
 from .forms import SalaFormulario, BusquedaSalaFormulario, UsuarioFormulario,BusquedaUsuarioFormulario, BusquedaPeliculaFormulario, PeliculaFormulario
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 #Paginas principales
 
 
@@ -109,10 +109,11 @@ def buscarPeliculas(request):
         form = BusquedaPeliculaFormulario(request.GET)
         if form.is_valid():
             nombre = form.cleaned_data["nombre"]
-            autor = form.cleaned_data["autor"]
-            fecha_estreno = form.cleaned_data["fecha_estreno"]
-            genero = form.cleaned_data["genero"]
-            resultados = Pelicula.objects.filter(nombre = nombre,autor = autor,fecha_estreno = fecha_estreno, genero = genero)
+            # Pendiente de colocar filtros opcionales
+            #autor = form.cleaned_data["autor"]
+            #fecha_estreno = form.cleaned_data["fecha_estreno"]
+            #genero = form.cleaned_data["genero"]
+            resultados = Pelicula.objects.filter(nombre = nombre) #,autor = autor,fecha_estreno = fecha_estreno, genero = genero)
             return render(
                 request
                 ,"core/peliculas/resultado_busqueda_pelicula.html",
@@ -132,4 +133,18 @@ class PeliculaList(ListView):
 
 class PeliculaDetalle(DetailView):
     model = Pelicula
-    template_name = "core/peloiculas/pelicula_detalle.html"
+    template_name = "core/peliculas/pelicula_detalle.html"
+
+class PeliculaEditar(UpdateView):
+    model = Pelicula
+    fields = ['nombre','autor','fecha_estreno','genero']
+    template_name = "core/peliculas/pelicula_editar.html"
+
+    def get_success_url(self):
+        return redirect("peliculas").url
+    
+class PeliculaEliminar(DeleteView):
+    model = Pelicula
+    template_name ="core/peliculas/pelicula_confirmar_delete.html"
+    def get_success_url(self):
+        return redirect("peliculas").url
