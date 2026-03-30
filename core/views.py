@@ -114,7 +114,7 @@ def buscarPeliculas(request):
             resultados = Pelicula.objects.filter(nombre = nombre,autor = autor,fecha_estreno = fecha_estreno, genero = genero)
             return render(
                 request
-                ,"core/peliculas/resultado_busqueda_pelicula.html",
+                ,"core/peliculas/resultados_busqueda_pelicula.html",
                 {"resultados": resultados, "form": form})
     else:
         form = BusquedaPeliculaFormulario()
