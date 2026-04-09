@@ -1,5 +1,6 @@
 from django import forms
-
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 #Formularios de sala
 
 class SalaFormulario(forms.Form):
@@ -29,7 +30,7 @@ class PeliculaFormulario(forms.Form):
     nombre = forms.CharField(max_length=50,label="Nombre de la pelicula")
     autor = forms.CharField(max_length=50, label="Autor")
     fecha_estreno = forms.DateField(label="Fecha de extreno DD/MM/YYYY")
-    genero = forms.CharField(max_length=20,)
+    genero = forms.CharField(max_length=20)
 
 class BusquedaPeliculaFormulario(forms.Form):
     nombre = forms.CharField(max_length=50)
@@ -37,3 +38,12 @@ class BusquedaPeliculaFormulario(forms.Form):
     #autor = forms.CharField(max_length=50)
     #fecha_estreno = forms.DateField()
     #genero = forms.CharField(max_length=20)
+
+class RegistroUsuarioForm(UserCreationForm):
+    email = forms.EmailField()
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+
+    class Meta:
+        model = User
+        fields = ["username","email","first_name","last_name"]

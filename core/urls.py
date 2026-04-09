@@ -7,12 +7,7 @@ urlpatterns = [
     path("salas/",views.salas,name="salas"),
     path("salaFormulario",views.salaFormulario,name="salaFormulario"),
     path("buscarSala/",views.buscarSala,name="buscarSala"),
-    #Urls Usuarios
-    path("usuarios/",views.usuarios,name="usuarios"),
-    path("usuarioFormulario",views.usuarioFormulario,name="usuarioFormulario"),
-    path("buscarUsuario/",views.buscarUsuario,name="buscarUsuario"),
-    #Urls Peliculas
-    path("peliculasFormulario",views.peliculasFormulario,name="peliculasFormulario"),
+    path("UsuarioFormulario/",views.registro_usuario,name="RegistroPelicula")
     path("buscarPelicula/",views.buscarPeliculas,name="buscarPeliculas"),
     path("peliculas/",views.PeliculaList.as_view(),name="peliculas"), #Vista basada en clase
     path("PeliculaCrear/",views.PeliculaCrear.as_view(),name="PeliculaCrear"), #Vista basada en clase

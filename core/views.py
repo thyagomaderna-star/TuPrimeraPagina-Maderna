@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from .models import Usuario, Pelicula, Sala
-from .forms import SalaFormulario, BusquedaSalaFormulario, UsuarioFormulario,BusquedaUsuarioFormulario, BusquedaPeliculaFormulario, PeliculaFormulario
+from .forms import SalaFormulario, BusquedaSalaFormulario, UsuarioFormulario,BusquedaUsuarioFormulario, BusquedaPeliculaFormulario, PeliculaFormulario, RegistroUsuarioForm, AuthenticationForm
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 #Paginas principales
 
@@ -14,7 +14,7 @@ def salas(request):
     contexto = {"salas": salas}
     return render(request,"core/sala/salas.html",contexto)
 
-def usuarios(request):
+#def usuarios(request):
     usuarios = Usuario.objects.all()
     contexto = {"usuarios": usuarios}
     return render(request,"core/usuarios/usuarios.html",contexto)
@@ -39,7 +39,7 @@ def salaFormulario(request):
         form = SalaFormulario()
     return render(request, "core/sala/sala_formulario.html", {"form": form})
 
-def usuarioFormulario(request):
+#def usuarioFormulario(request):
     if request.method == "POST":
         form = UsuarioFormulario(request.POST)
         if form.is_valid():
@@ -53,7 +53,7 @@ def usuarioFormulario(request):
         form = UsuarioFormulario()
     return render(request, "core/usuarios/usuario_formulario.html", {"form": form})
 
-def peliculasFormulario(request):
+#def peliculasFormulario(request):
     if request.method == "POST":
         form = PeliculaFormulario(request.POST)
         if form.is_valid():
@@ -86,7 +86,7 @@ def buscarSala(request):
         form = BusquedaSalaFormulario()
     return render(request, "core/sala/buscar_sala.html", {"form": form})
 
-def buscarUsuario(request):
+#def buscarUsuario(request):
     if request.method == "GET":
         form = BusquedaUsuarioFormulario(request.GET)
         if form.is_valid():
@@ -153,3 +153,17 @@ class PeliculaCrear(CreateView):
     model = Pelicula
     fields = ['nombre','autor','fecha_estreno','genero']
     template_name = "core/peliculas/pelicula_create.html"
+
+
+
+# LOGIN AND REGISTRER
+def registro_usuario(request):
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('inicio').url
+    else:
+        form = RegistroUsuarioForm()
+    context = {'form': form}
+    return render(request, 'core/usuarios/usuario_formulario.html', context)
